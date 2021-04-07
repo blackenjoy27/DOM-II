@@ -1,12 +1,9 @@
-// load
 // focus
-// resize
 // scroll
 // select
-// dblclick
 // drag / drop
 const colors = ["#ffe268","#ddffbc","#a4ebf3","#1a508b"];
-
+let color;
 let radius = 0;
 document.addEventListener("wheel",e=>{
     if (e.deltaY < 0){
@@ -33,7 +30,7 @@ document.querySelectorAll(".nav-link").forEach(nav=>{
 document.addEventListener("keydown",e=>{
     
     document.querySelectorAll("img").forEach(img=>{
-        let color = colors[Math.floor(Math.random()*4)];
+        color = colors[Math.floor(Math.random()*4)];
         img.style.borderColor = color;
     });  
 })
@@ -53,4 +50,21 @@ document.querySelector("img").addEventListener("dblclick",e=>{
     }
 })
 
+document.querySelector("img").addEventListener("drag",e=>{
+    color = colors[Math.floor(Math.random()*4)];
+    e.target.style.borderColor = color;
+})
 
+window.addEventListener("resize",e=>{
+    alert("Everything will changed!!");
+})
+
+window.addEventListener("load",e=>{
+    alert("Contents are available after clicking");
+})
+
+
+document.addEventListener("copy",e=>{
+    color = colors[Math.floor(Math.random()*4)];
+    e.target.style.color= color;
+})
