@@ -1,7 +1,3 @@
-// Your code goes here
-
-
-// wheel
 // load
 // focus
 // resize
@@ -15,7 +11,7 @@ let radius = 0;
 document.addEventListener("wheel",e=>{
     if (e.deltaY < 0){
         if(radius>0){
-            radius-=0.5;
+            radius-=3;
             document.querySelectorAll("img").forEach(img=>{
                 img.style.borderRadius = `${radius}px`;
             })
@@ -23,13 +19,12 @@ document.addEventListener("wheel",e=>{
     }
     else if (e.deltaY > 0){
         if(radius<=50){
-            radius+=0.5;
+            radius+=8;
             document.querySelectorAll("img").forEach(img=>{
                 img.style.borderRadius = `${radius}px`;
             })
         }
     }
-    
 })
 document.querySelectorAll(".nav-link").forEach(nav=>{
     nav.addEventListener("mouseover",e=>nav.style.fontWeight = "bold")
@@ -44,4 +39,18 @@ document.addEventListener("keydown",e=>{
 })
 document.querySelector(".logo-heading").addEventListener("click",e=>{
     alert("This is our logo");
+
 })
+
+let shrink = false;
+document.querySelector("img").addEventListener("dblclick",e=>{
+    if(!shrink){
+        e.target.style.width = "90%";
+        shrink = true;
+    }else{
+        e.target.style.width = "100%";
+        shrink = false;
+    }
+})
+
+
